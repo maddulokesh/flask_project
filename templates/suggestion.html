@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>{% block title %}
+  {% endblock title %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+{% block style %}
+{% endblock style %}
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css">
+  <link rel="stylesheet" href="css/styles.css">
+ 
+</head>
+
+<body>
+
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+
+        <a href="/" class="scrollto">FARMING</a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+ 
+    {% if current_user.is_authenticated  %}
+            <li class="buy-tickets"><a href="/sell">Sell</a></li>
+            <li class="buy-tickets"><a href="/buy">Buy</a></li>
+            <li class="buy-tickets"><a href="/suggestion">Suggestions</a></li>
+            <li class="buy-tickets"><a href="/contact">Contact</a></li>
+            <li class="buy-tickets"><a href="/about">About</a></li>
+          <li class="buy-tickets"><a href="">Welcome {{current_user.username}}</a></li>
+            <li class="buy-tickets"><a href="/logout">Logout</a></li>
+          {% else %}
+          <li class="buy-tickets"><a href="/login">Signin</a></li>
+        
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+ <section id="intro">
+    <div class="intro-container" data-aos="zoom-in" data-aos-delay="100">
+        <header>
+            <div class="container">
+                <div class="row row-header">
+                    <div class="col-sm-6">
+                        <h1>About</h1>
+                        <p>The project is an overview for the management of the agricultural sector. This website helps the farmers to implement the profits for their growth and this reduces the work of the farmers. Our project provides the data about the essential availability of seeds, irrigation facilities, harvesting machineries and also seasonal crops. On the research of our project we found that 60% of the farmers had smart phones which sort out the problem and for the other remaining farmers there will be a provision of volunteers. Our main moto behind this project is that it helps the future India to meet their needs for the hunger.</p>
+                    </div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-3 align-self-center">
+                        <img src="{{url_for('static', filename='images/suggestions.png')}}"/>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
+        </header>
+    </div>
+  </section>
+  <main id="main">
+
+
+  {% block body %}
+  
+
+  <div class="container">
+    <div class="row row-content">
+        <div class="col">
+            <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <img class="d-block img-fluid"
+                            src="{{url_for('static', filename='images/crop.png')}}" alt="crop">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 class="mt-0"><span class="badge badge-danger">Soil and water sensors</span></h2>
+                            <p class="d-none d-sm-block">These sensors are very useful for detection of moisture and nitrogen levels and moreover these are affordable and durable to  farmers to distribute them throughout their land.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid"
+                            src="{{url_for('static', filename='images/tech.png')}}" alt="crop">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 class="mt-0"><span class="badge badge-danger">Drone and other aerial imagery </span></h2>
+                            <p class="d-none d-sm-block">With the assistance of drones farmers have an opportunity to define crop biomass, plant height, the presence of weeds, and water saturation on certain field areas with high precision.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block img-fluid"
+                            src="{{url_for('static', filename='images/auto.png')}}" alt="crop">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h2 class="mt-0"><span class="badge badge-danger">Pervasive automation</span></h2>
+                            <p class="d-none d-sm-block">This is an amazing boom in the agricultural sector which includes the vehicles controlled by robotics or remotely through navigation systems.</p>
+                        </div>
+                    </div>
+                </div>
+                <ol class="carousel-indicators">
+                    <li data-target="#mycarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#mycarousel" data-slide-to="1"></li>
+                    <li data-target="#mycarousel" data-slide-to="2"></li>
+                </ol>
+                <a class="carousel-control-prev" href="#mycarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+                <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+            </div>
+         </div>
+    </div>
+</div>  
+
+<div class="container">
+    <div class="card">
+        <h3 class="card-header bg-primary text-white">Suggestions</h3>
+        <div class="card-body">
+            
+                <div class="col-sm col-md flex-first">
+                    <div class="media">
+                        <div class="media-body">
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        1. Loamy soil (more fertile) is used for growing crops such as pulses,sugarcane,cotton.<br>
+                        link: <a href="https://www.bobvila.com/articles/loamy-soil/">https://www.bobvila.com/articles/loamy-soil/</a>
+                        </div></div></div></div></div>
+                       
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        2. For the less fertility of soil to increase the fertility we can grow plants like peas, beans ,clover,oats.<br>
+                        link: <a href="https://rodaleinstitute.org/blog/20-ways-to-boost-soil-fertility/">https://rodaleinstitute.org/blog/20-ways-to-boost-soil-fertility/</a>
+                        </div></div></div></div></div>
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        3. Sandy soil is used to grow hibiscus, carrots, lettuce.<br>
+                        link: <a href="https://byjus.com/biology/types-of-soil/">https://byjus.com/biology/types-of-soil/</a>
+                        </div></div></div></div></div>
+                        
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        4. Clay soil is used to grow broccoli, cabbage,gram,lentils.<br> 
+                        link: <a href="https://www.familyhandyman.com/article/clay-soil/">https://www.familyhandyman.com/article/clay-soil/</a>
+                        </div></div></div></div></div>
+                        
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        5. Some plants do not require a particular soil to grow instead they can grow in water. Those are known as hydroponic plants.<br>
+                        link: <a href="https://dengarden.com/gardening/indoor-hydroponic-garden">https://dengarden.com/gardening/indoor-hydroponic-garden</a>
+                        </div></div></div></div></div>
+                        
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        6. The hydroponic plants which can grow to our weather condition are strawberry, basil,mint.<br>
+                        link: <a href="https://gardeningbrain.com/strawberry-mint-plant/">https://gardeningbrain.com/strawberry-mint-plant/</a>
+                        </div></div></div></div></div>
+                        
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        7. During rabi season we can grow sweet potatoes, edamame,pumpkin, peppers.<br>
+                        link: <a href="https://byjus.com/free-ias-prep/rabi-kharif-crops/">https://byjus.com/free-ias-prep/rabi-kharif-crops/</a>
+                        </div></div></div></div></div>
+                       
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        8. During kharif season we can grow  rice,millets,maize.<br>
+                        link: <a href="https://byjus.com/biology/difference-between-rabi-and-kharif-crops/">https://byjus.com/biology/difference-between-rabi-and-kharif-crops/</a>
+                        </div></div></div></div></div>
+                        
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        9. During Zaid season we can grow watermelon, muskmelon, fodder crops.<br>
+                        link: <a href="https://byjus.com/ias-questions/what-is-zaid-crop/">https://byjus.com/ias-questions/what-is-zaid-crop/</a>
+                        </div></div></div></div></div>
+                      
+                        <div class="card">
+                        <div class="card-body">
+                        <div class="col-sm col-md flex-first">
+                        <div class="media">
+                        <div class="media-body">
+                        10. For farmers there is no particular time for the growth of the crops as each crop possess different habitat of their growth.<br>
+                        link: <a href="https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-habitats">https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/soil-habitats</a>
+                        </div></div></div></div></div>
+        
+                        </div>
+                    
+                    </div>
+                </div>
+        </div>
+    </div> 
+</div><br>
+<div class="container">
+    <div class="card">
+        <h3 class="card-header bg-secondary text-white">Weather Report</h3>
+        <div class="card-body">
+            
+                <div class="col-md flex-first">
+                    <div class="media row">
+                        <div class="media-body col-sm-8">
+                            <dl class="row">
+                                <dt class="col-6">Date</dt>
+                                <dd class="col-6">13 aug.2022</dd>
+                                <dt class="col-6">Temperature</dt>
+                                <dd class="col-6">26 Degree Celsius</dd>
+                                <dt class="col-6">Humidity</dt>
+                                <dd class="col-6">89%</dd>
+                                <dt class="col-6">Sunrise</dt>
+                                <dd class="col-6">5:28 AM</dd>
+                                <dt class="col-6">Sunset</dt>
+                                <dd class="col-6">6:36 PM</dd>
+                            </dl>
+                        </div>
+                        <div class="col-sm-3">
+                        <img class="d-flex mr-3 img-thumbnail align-self-center"
+                        src="{{url_for('static', filename='images/weather1.png')}}" alt="Weather">
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    
+</div>   
+<div class="container">
+    <div class="card">
+        <h3 class="card-header bg-primary text-white">Pesticides</h3>
+        <div class="card-body">
+            
+            <div class="col-md flex-first">
+                <div class="media row">
+                    <div class="media-body col-sm-8">
+                        <dl class="row">
+                                <dt class="col-6">DDT</dt>
+                                <dd class="col-6">₹25.6/kg(For to kill insects)</dd>
+                                <dt class="col-6">Chlorpyrifos</dt>
+                                <dd class="col-6">₹300/lit(To control foliage and soil borne)</dd>
+                                <dt class="col-6">Herbicides</dt>
+                                <dd class="col-6">₹215/lit(To control undesired plants)</dd>
+                                <dt class="col-6">Rodenticide</dt>
+                                <dd class="col-6">₹60/piece(To kill rats and mice)</dd>
+                                
+                            </dl>
+                        </div>
+                        <div class="col-sm-3">
+                        <img class="d-flex mr-3 img-thumbnail align-self-center"
+                        src="{{url_for('static', filename='images/pesticide.png')}}" alt="Weather">
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+    
+</div> 
+<div class="container">
+    <div class="card">
+        <h3 class="card-header bg-secondary text-white">Fertilizers</h3>
+        <div class="card-body">
+            
+            <div class="col-md flex-first">
+                <div class="media row">
+                    <div class="media-body col-sm-8">
+                        <dl class="row">
+                                <dt class="col-6">Urea</dt>
+                                <dd class="col-6">₹5.36/kg(For nitrogen improvements)</dd>
+                                <dt class="col-6">DAP</dt>
+                                <dd class="col-6">₹23.6/kg(For ammonium-potassium improvements)</dd>
+                                <dt class="col-6">Potassium</dt>
+                                <dd class="col-6">₹18/kg(For potassium improvements)</dd>
+                                <dt class="col-6">Micro-nutrients</dt>
+                                <dd class="col-6">₹125/kg</dd>
+                            </dl>
+                        </div>
+                        <div class="col-sm-3">
+                        <img class="d-flex mr-3 img-thumbnail align-self-center"
+                        src="{{url_for('static', filename='images/fertilizers.png')}}" alt="Weather">
+                        </div>
+                    </div>
+                </div>               
+        </div>
+    </div>        
+</div> 
+<div class="container">
+    <div class="card">
+        <h3 class="card-header bg-primary text-white">Tools</h3>
+        <div class="card-body">
+            <div class="col-md flex-first">
+                <div class="media row">
+                    <div class="media-body col-sm-8">
+                        <dl class="row">
+                                <dt class="col-6">Combined Harvester</dt>
+                                <dd class="col-6">₹1000/hour</dd>
+                                <dt class="col-6">rotavator</dt>
+                                <dd class="col-6">₹600/hour</dd>
+                                <dt class="col-6">Tractor</dt>
+                                <dd class="col-6">₹500/hour</dd>
+                                <dt class="col-6">Sprinklers</dt>
+                                <dd class="col-6">₹300/day</dd>
+                            </dl>
+                        </div>
+                        <div class="col-sm-3">
+                        <img class="d-flex mr-3 img-thumbnail align-self-center"
+                        src="{{url_for('static', filename='images/combined.png')}}" alt="Weather">
+                        </div>
+                    </div>
+                </div>  
+        </div>
+    </div>
+</div>
+  
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+
+
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+  {% endblock body %}
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+
+  <script src="static/assets/vendor/jquery/jquery.min.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+  <script src="static/assets/vendor/venobox/venobox.min.js"></script>
+  <script src="static/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="static/assets/vendor/superfish/superfish.min.js"></script>
+  <script src="static/assets/vendor/hoverIntent/hoverIntent.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/js/main.js"></script>
+
+  <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
